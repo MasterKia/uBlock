@@ -64,6 +64,9 @@ On Windows, the settings are saved in a SQlite file located at `%APPDATA%\Mozill
 - Set path to uBlock: `cd uBlock`
 - The official version of uBO is in the `master` branch
     - `git checkout master`
+- [Optional] Enable WebAssembly support locally to test WASM in Chromium-based browsers:
+    - Change [this line](https://github.com/gorhill/uBlock/blob/b73a0bef591bb64db81ae2ed5324a775f90a4448/platform/chromium/manifest.json#L79) in Chromium's manifest file at `./platform/chromium/manifest.json` to:
+      `"content_security_policy": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'",`
 - Build the plugin:
     - Chromium: `make chromium`
     - Firefox: `make firefox`
